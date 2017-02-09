@@ -24,6 +24,8 @@ BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	cmake(qt5xdg)
 BuildRequires:	cmake(PolkitQt5-1)
+BuildRequires:	cmake
+BuildRequires:	extra-cmake-modules
 
 %description
 A collection of core classes used throughout Liri
