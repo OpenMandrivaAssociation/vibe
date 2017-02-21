@@ -24,11 +24,10 @@ BuildRequires:	cmake(KF5Wallet)
 BuildRequires:	cmake(KF5Solid)
 BuildRequires:	cmake(qt5xdg)
 BuildRequires:	cmake(PolkitQt5-1)
-BuildRequires:	cmake
-BuildRequires:	extra-cmake-modules
+BuildRequires:	cmake(ECM)
 
 %description
-A collection of core classes used throughout Liri
+A collection of core classes used throughout Liri.
 
 %package -n     %{libvibecore}
 Summary:        Library for %{name}
@@ -42,7 +41,7 @@ Summary:        Library for %{name}
 Group:          System/Libraries
 
 %description -n %{libvibecore}
-Library for %{name}
+Library for %{name}.
 
 %package -n     %{devname}
 Summary:        Development files for %{name}
@@ -53,17 +52,17 @@ Provides:       %{name}-devel = %{EVRD}
 
 %description -n %{devname}
 Components for Qt Quick applications with Material Design and Universal
-development files
+development files.
 
 %prep
 %setup -q
+%cmake_qt5
 
 %build
-%cmake_qt5
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 %files
 %{_bindir}/liri-notify
